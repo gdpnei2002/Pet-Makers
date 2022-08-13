@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const mysql = require("mysql")
+const cors = require("cors")
 
 const db = mysql.createPool({
     host:"localhost",
@@ -8,6 +9,21 @@ const db = mysql.createPool({
     password:"1010",
     database: "pets"
 });
+
+app.use(cors());
+app.use(express.json());
+
+app.post("/register", (req, res)=>{
+    const{name} = req.body;
+    const{age} = req.body;
+    const{breed} = req.body;
+
+    let SQL = "INSERT INTO pet (name, age, breed)  VALUES (?,?,?)";
+
+    db.query(SQL, [name, age, breed], (err, result) => {
+        console.log(err);
+    })
+})
 
 app.get("/", (req, res) =>{
     let SQL = 
