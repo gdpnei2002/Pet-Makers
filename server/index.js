@@ -34,6 +34,15 @@ app.get("/", (req, res) =>{
     }
 });
 
+app.get("/getList", (req, res) =>{
+    let SQL = "SELECT * from pet";
+
+    db.query(SQL, (err, result) =>{
+        if (err) console.log(err);
+        else res.send(result)
+    })
+})
+
 app.listen(3001, ()=>{
     console.log("rodando servidor");
 });

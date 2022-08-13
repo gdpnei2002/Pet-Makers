@@ -1,9 +1,11 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 import Axios from "axios";
+import List from './components/List/List';
 
 function App() {
   const [values, setValues] = useState();
+  const [listPets, setListPets] = useState();
 
   const handleChangeValues = (value) =>{
     setValues((prevValue)=>({
@@ -21,6 +23,12 @@ function App() {
     console.log(response);
   })
   }
+
+  useEffect(() =>{
+    Axios.get("http://localhost:3001/getList").then((response) =>{
+      setListPets(response.data);
+    })
+  },[])
 
   return (
     <div className="app-container">
@@ -56,6 +64,16 @@ function App() {
         
           <button className="register-button" 
             onClick={()=>handleClickButton()}>Cadastrar</button>
+            {typeof listPets !== "undefined" && listPets.map((value) =>{
+            return  <List 
+                        key={value.id}
+                        listPets={listPets}
+                        setListPets={setListPets}
+                        id={value.idpet}
+                        name={value.name}
+                        age={value.age}
+                        breed={value.breed}></List>
+            })}
     </div>
   );
 }
