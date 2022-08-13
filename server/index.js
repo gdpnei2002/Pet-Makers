@@ -43,6 +43,32 @@ app.get("/getList", (req, res) =>{
     })
 })
 
+app.put("/edit", (req, res) =>{
+    const {id} = req.body;
+    const {name} = req.body;
+    const {age} = req.body;
+    const {breed} = req.body;
+
+    let SQL = "UPDATE pet SET name = ?, age = ?, breed = ? WHERE idpet = ?";
+
+    db.query(SQL, [name, age, breed, id],(err, result) => {
+        if(err) console.log(err);
+        else res.send(result);
+    })
+})
+
+app.delete("/delete/:id", (req, res) => {
+    const { id } = req.params;
+    let SQL = "DELETE FROM pet WHERE idpet = ?";
+    db.query(SQL, [id], (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
+    });
+  });
+
 app.listen(3001, ()=>{
     console.log("rodando servidor");
 });
