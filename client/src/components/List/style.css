@@ -32,3 +32,22 @@
 .list-age{
     padding: 5px;
 }
+
+.inputs{
+    border: 3px solid black;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 30%;
+    padding: 10px;
+}
+
+  .register-button{
+    margin-left: -20%;
+  }
+
+.inputm{
+
+    align-items: center;
+
+}

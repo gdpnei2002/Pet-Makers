@@ -33,6 +33,7 @@ function App() {
   return (
     <div className="app-container">
       <h1 className="register-title">Pet-Makers</h1>
+      <div className="inputm">
         <div className="inputs">
           <input 
             type="text" 
@@ -47,7 +48,7 @@ function App() {
             placeholder="Idade" 
             className="register-input"
             onChange={handleChangeValues}
-            /> <br />
+            /> 
 
           <input 
             type="select" 
@@ -61,11 +62,12 @@ function App() {
               name="tipo" >
               <option value="cachorro">Cachorro</option>
               <option value="gato">Gato</option>
-            </select>
+            </select><br />
         
           <button className="register-button" 
             onClick={()=>handleClickButton()}>Cadastrar</button>
         </div>
+      </div>
             {typeof listPets !== "undefined" && listPets.map((value) =>{
             return  <List 
                         key={value.id}
