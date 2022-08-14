@@ -33,6 +33,7 @@ function App() {
   return (
     <div className="app-container">
       <h1 className="register-title">Pet-Makers</h1>
+        <div className="inputs">
           <input 
             type="text" 
             name="name" 
@@ -64,6 +65,7 @@ function App() {
         
           <button className="register-button" 
             onClick={()=>handleClickButton()}>Cadastrar</button>
+        </div>
             {typeof listPets !== "undefined" && listPets.map((value) =>{
             return  <List 
                         key={value.id}

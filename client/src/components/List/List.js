@@ -21,13 +21,11 @@ export default function List(props){
             setListList={props.setListList}
             id={props.id}
             />
-        <div className="card-container" onClick={() => handleClickList()}>
-            <div className="card-container">
-            <p className="card-title">{props.name}</p>
-            <p className="card-id">{props.id}</p>
-            <p className="card-breed">{props.breed}</p>
-            <p className="card-age">{props.age}</p>
-            </div>
+        <div className="list-container" onClick={() => handleClickList()}>
+            <p className="list-title">{props.name}</p>
+            <p className="list-id">{props.id}</p>
+            <p className="list-breed">{props.breed}</p>
+            <p className="list-age">{props.age}</p>
         </div>
       </>
     )

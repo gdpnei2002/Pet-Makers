@@ -1,3 +1,34 @@
-.card-container {
+.list{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.list-container {
     display: flex;
+    cursor: pointer;
+    padding: 5px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: rgb(234, 234, 234);
+}
+
+.list-container :hover{
+    background-color: rgb(196, 196, 196);
+    transition: 1.0s;
+}
+
+.list-title{
+    padding: 5px;
+}
+
+.list-id{
+    padding: 5px;
+    
+}
+
+.list-breed{
+    padding: 5px;
+}
+
+.list-age{
+    padding: 5px;
 }
