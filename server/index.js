@@ -17,17 +17,19 @@ app.post("/register", (req, res)=>{
     const{name} = req.body;
     const{age} = req.body;
     const{breed} = req.body;
+    const{client} = req.body;
+    const{animal} = req.body;
 
-    let SQL = "INSERT INTO pet (name, age, breed)  VALUES (?,?,?)";
+    let SQL = "INSERT INTO pet (name, age, breed, client, animal )  VALUES (?,?,?,?,?)";
 
-    db.query(SQL, [name, age, breed], (err, result) => {
+    db.query(SQL, [name, age, breed, client, animal], (err, result) => {
         console.log(err);
     })
 })
 
 app.get("/", (req, res) =>{
     let SQL = 
-    "INSERT INTO pet (name, age, breed) VALUES ('bob', '4', 'labrador')";
+    "INSERT INTO pet (name, age, breed, client, animal) VALUES ('bob', '4', 'labrador', 'dsa', 'Gato')";
 
     db.query(SQL),(err, result) =>{
         console.log(err)
@@ -48,10 +50,12 @@ app.put("/edit", (req, res) =>{
     const {name} = req.body;
     const {age} = req.body;
     const {breed} = req.body;
+    const {client} = req.body;
+    const {animal} = req.body;
 
-    let SQL = "UPDATE pet SET name = ?, age = ?, breed = ? WHERE idpet = ?";
+    let SQL = "UPDATE pet SET name = ?, age = ?, breed = ?, client = ?, animal = ? WHERE idpet = ?";
 
-    db.query(SQL, [name, age, breed, id],(err, result) => {
+    db.query(SQL, [name, age, breed, id, client, animal],(err, result) => {
         if(err) console.log(err);
         else res.send(result);
     })

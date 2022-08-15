@@ -19,6 +19,8 @@ function App() {
     name: values.name,
     age: values.age,
     breed: values.breed,
+    client: values.client,
+    animal: values.animal,
   }).then((response) => {
     console.log(response);
   })
@@ -38,7 +40,7 @@ function App() {
           <input 
             type="text" 
             name="name" 
-            placeholder="Nome" 
+            placeholder="Nome do animal" 
             className="register-input"
             onChange={handleChangeValues}
             />
@@ -51,18 +53,27 @@ function App() {
             /> 
 
           <input 
-            type="select" 
+            type="text" 
             name="breed" 
             placeholder="Raça" 
             className="register-input"
             onChange={handleChangeValues}
             />
-            <select
-              className="register-input"
-              name="tipo" >
-              <option value="cachorro">Cachorro</option>
-              <option value="gato">Gato</option>
-            </select><br />
+
+          <input 
+            type="text" 
+            name="client" 
+            placeholder="Nome do cliente" 
+            className="register-input"
+            onChange={handleChangeValues}
+            />
+          <input 
+            type="text" 
+            name="animal" 
+            placeholder="Cachorro ou gato" 
+            className="register-input"
+            onChange={handleChangeValues}
+            />
         
           <button className="register-button" 
             onClick={()=>handleClickButton()}>Cadastrar</button>
@@ -76,7 +87,10 @@ function App() {
                         id={value.idpet}
                         name={value.name}
                         age={value.age}
-                        breed={value.breed}></List>
+                        breed={value.breed}
+                        client={value.client}
+                        animal={value.animal}>
+                      </List>
             })}
     </div>
   );

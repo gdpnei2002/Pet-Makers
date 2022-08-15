@@ -13,6 +13,8 @@ export default function FormDialog(props) {
     name: props.name,
     age: props.age,
     breed: props.breed,
+    client: props.client,
+    animal: props.animal,
   });
 
   const handleChangeValues = (values) => {
@@ -32,6 +34,8 @@ export default function FormDialog(props) {
       name: editValues.name,
       age: editValues.age,
       breed: editValues.breed,
+      client: editValues.client,
+      animal: editValues.animal,
     }).then(() => {
       props.setListList(
         props.listList.map((value) => {
@@ -41,6 +45,8 @@ export default function FormDialog(props) {
                 name: editValues.name,
                 age: editValues.age,
                 breed: editValues.breed,
+                client: editValues.client,
+                animal: editValues.animal,
               }
             : value;
         })
@@ -100,6 +106,24 @@ export default function FormDialog(props) {
                 id="breed"
                 label="Raça"
                 defaultValue={props.breed}
+                type="text"
+                onChange={handleChangeValues}
+                fullWidth/>
+          <TextField
+                autoFocus
+                margin="dense"
+                id="client"
+                label="Nome do cliente"
+                defaultValue={props.client}
+                type="text"
+                onChange={handleChangeValues}
+                fullWidth/>
+          <TextField
+                autoFocus
+                margin="dense"
+                id="animal"
+                label="Animal"
+                defaultValue={props.animal}
                 type="text"
                 onChange={handleChangeValues}
                 fullWidth/>
